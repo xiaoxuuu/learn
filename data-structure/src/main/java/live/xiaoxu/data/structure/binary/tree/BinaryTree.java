@@ -1,4 +1,4 @@
-package live.xiaoxu.learn.data.structure.binary.tree;
+package live.xiaoxu.data.structure.binary.tree;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
