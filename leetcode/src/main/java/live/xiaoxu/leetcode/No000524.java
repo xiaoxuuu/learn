@@ -4,9 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author Xiao Xu
- * @date 2021/9/14 上午 10:38
- * https://leetcode-cn.com/problems/longest-word-in-dictionary-through-deleting/
+ * <p><a href="https://leetcode-cn.com/problems/longest-word-in-dictionary-through-deleting/">524. 通过删除字母匹配到字典里最长单词</a></p>
+ *
+ * @author 小徐
+ * @since 2021/9/14 10:38
  */
 public class No000524 {
 
