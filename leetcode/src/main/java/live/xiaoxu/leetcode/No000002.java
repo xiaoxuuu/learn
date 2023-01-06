@@ -1,9 +1,10 @@
 package live.xiaoxu.leetcode;
 
 /**
- * @author Xiao Xu
- * @date 2021/9/14 上午 10:38
- * https://leetcode-cn.com/problems/add-two-numbers/
+ * <p><a href="https://leetcode-cn.com/problems/add-two-numbers/">2. 两数相加</a></p>
+ *
+ * @author 小徐
+ * @since 2021/9/14 10:38
  */
 public class No000002 {
 
