@@ -1,9 +1,9 @@
 package live.xiaoxu.design.pattern.observer;
 
-import live.xiaoxu.learn.designPattern.observerPattern.demo.BinaryObserver;
-import live.xiaoxu.learn.designPattern.observerPattern.demo.HexaObserver;
-import live.xiaoxu.learn.designPattern.observerPattern.demo.OctalObserver;
-import live.xiaoxu.learn.designPattern.observerPattern.demo.Subject;
+import live.xiaoxu.design.pattern.observer.demo.BinaryObserver;
+import live.xiaoxu.design.pattern.observer.demo.HexaObserver;
+import live.xiaoxu.design.pattern.observer.demo.OctalObserver;
+import live.xiaoxu.design.pattern.observer.demo.Subject;
 
 /**
  * @author Xiao Xu
