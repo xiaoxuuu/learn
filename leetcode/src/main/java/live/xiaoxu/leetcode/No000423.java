@@ -10,13 +10,18 @@ package live.xiaoxu.leetcode;
  */
 public class No000423 {
 
+    public static void main(String[] args) {
+        assert "012".equals(originalDigits("owoztneoer"));
+        assert "45".equals(originalDigits("fviefuro"));
+    }
+
     /**
      * <p>按照单词包含字母情况进行数据取出</p>
      *
      * @param s 字符串
      * @return 排序好的结果
      */
-    public String originalDigits(String s) {
+    public static String originalDigits(String s) {
 
         int[] intArray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
