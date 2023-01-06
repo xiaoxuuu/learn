@@ -2,11 +2,8 @@ package live.xiaoxu.leetcode;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * <p>https://leetcode-cn.com/problems/reconstruct-original-digits-from-english/</p>
+ * <p><a href="https://leetcode-cn.com/problems/reconstruct-original-digits-from-english/">423. 从英文中重建数字</a></p>
  * <p>0 zero、1 one、2 two、3 three、4 four</p>
  * <p>5 five、6 six、7 seven、8 eight、9 nine</p>
  *
@@ -24,43 +21,31 @@ public class No000423 {
 
     /**
      * <p>按照单词包含字母情况进行数据取出</p>
-     * <p>0 -z zero</p>
-     * <p>2 -w two</p>
-     * <p>4 -u four</p>
-     * <p>6 -x six</p>
-     * <p>8 -g eight</p>
-     * <p>7  s seven</p>
-     * <p>5  v five</p>
-     * <p>3  h three</p>
-     * <p>9  i nine</p>
-     * <p>1  o  one</p>
      *
      * @param s 字符串
      * @return 排序好的结果
      */
     public String originalDigits(String s) {
 
-        String[] stringSortArray = {"z-0", "w-2", "u-4", "x-6", "g-8", "s-7", "v-5", "h-3", "i-9", "o-1"};
-        Integer[] intArray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int[] intArray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-        Map<String, Integer> map = new HashMap<>();
-        // 计算字符串中字符数量
+        // 统计字母出现次数
         for (char c : s.toCharArray()) {
-            Integer i = map.getOrDefault(c + "", 0);
-            map.put(c + "", i + 1);
-        }
-
-        for (String value : stringSortArray) {
-            String[] split = value.split("-");
-            String letter = split[0];
-            int index = Integer.parseInt(split[1]);
-            for (int k = 0; k < map.getOrDefault(letter, 0); k++) {
-                Integer letterCount = intArray[index];
-                intArray[index] = letterCount + 1;
+            switch (c) {
+                case 'z' -> intArray[0]++;
+                case 'o' -> intArray[1]++;
+                case 'w' -> intArray[2]++;
+                case 'h' -> intArray[3]++;
+                case 'u' -> intArray[4]++;
+                case 'v' -> intArray[5]++;
+                case 'x' -> intArray[6]++;
+                case 's' -> intArray[7]++;
+                case 'g' -> intArray[8]++;
+                case 'i' -> intArray[9]++;
             }
-            map.remove(letter);
         }
 
+        // 删除重复统计
         if (0 != intArray[7]) {
             intArray[7] = intArray[7] - intArray[6];
         }
@@ -79,7 +64,7 @@ public class No000423 {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < intArray.length; i++) {
-            stringBuilder.append((i + "").repeat(intArray[i]));
+            stringBuilder.append((String.valueOf(i)).repeat(intArray[i]));
         }
 
         return stringBuilder.toString();
