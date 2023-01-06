@@ -1,7 +1,5 @@
 package live.xiaoxu.leetcode;
 
-import org.junit.jupiter.api.Test;
-
 /**
  * <p><a href="https://leetcode-cn.com/problems/reconstruct-original-digits-from-english/">423. 从英文中重建数字</a></p>
  * <p>0 zero、1 one、2 two、3 three、4 four</p>
@@ -11,13 +9,6 @@ import org.junit.jupiter.api.Test;
  * @since 2023/1/6 10:23
  */
 public class No000423 {
-
-    @Test
-    public void test() {
-
-        assert "012".equals(originalDigits("owoztneoer"));
-        assert "45".equals(originalDigits("fviefuro"));
-    }
 
     /**
      * <p>按照单词包含字母情况进行数据取出</p>
