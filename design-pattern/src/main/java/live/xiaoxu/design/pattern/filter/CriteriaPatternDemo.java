@@ -1,6 +1,6 @@
 package live.xiaoxu.design.pattern.filter;
 
-import live.xiaoxu.learn.designPattern.filterPattern.demo.*;
+import live.xiaoxu.design.pattern.filter.demo.*;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package live.xiaoxu.design.pattern.prototype;
 
-import live.xiaoxu.learn.designPattern.prototypePattern.demo.Shape;
-import live.xiaoxu.learn.designPattern.prototypePattern.demo.ShapeCache;
+import live.xiaoxu.design.pattern.prototype.demo.Shape;
+import live.xiaoxu.design.pattern.prototype.demo.ShapeCache;
 
 /**
  * @author Xiao Xu

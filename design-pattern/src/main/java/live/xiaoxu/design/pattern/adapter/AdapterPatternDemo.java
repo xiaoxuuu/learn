@@ -1,6 +1,6 @@
 package live.xiaoxu.design.pattern.adapter;
 
-import live.xiaoxu.learn.designPattern.adapterPattern.demo.AudioPlayer;
+import live.xiaoxu.design.pattern.adapter.demo.AudioPlayer;
 
 /**
  * @author Xiao Xu
