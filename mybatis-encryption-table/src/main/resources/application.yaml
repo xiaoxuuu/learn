@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: encryption
+  profiles:
+    active: ${cloud.profiles.active:local}
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 10000
+# 日志输出配置
+logging:
+  level:
+    live:
+      xiaoxu:
+        DEBUG
+# 自定义参数
+custom:
+  # 加密
+  encryption:
+    # 盐
+    variable: '0AAB595D13E70AA81A9B52DBE69F922E'
+    # 是否启用
+    enable: false
+    # 清理
+    clean:
+      # 备注
+      comment: false
