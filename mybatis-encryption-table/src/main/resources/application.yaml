@@ -20,7 +20,7 @@ custom:
     # 盐
     variable: '0AAB595D13E70AA81A9B52DBE69F922E'
     # 是否启用
-    enable: false
+    enable: true
     # 清理
     clean:
       # 备注
