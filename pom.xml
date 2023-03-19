@@ -14,7 +14,7 @@
         <module>basic-data-structure</module>
         <module>basic-design-pattern</module>
         <module>basic-leetcode</module>
-        <module>jdk</module>
+        <module>basic-jdk</module>
         <module>mybatis-encryption-table</module>
         <module>basic-common</module>
     </modules>
