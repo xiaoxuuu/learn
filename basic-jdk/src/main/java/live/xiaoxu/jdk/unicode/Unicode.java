@@ -6,10 +6,12 @@ public class Unicode {
 
         // 截取前两个字符
         String str = "这是☁️云朵";
-        System.out.println(subStr(str, 4));
-        System.out.println(subStr(str, 3));
-        System.out.println(subStr(str, 2));
         System.out.println(subStr(str, 1));
+        System.out.println(subStr(str, 2));
+        System.out.println(subStr(str, 3));
+        System.out.println(subStr(str, 4));
+        String s = "☁️";
+        System.out.println(substring(str, 0, 3));
     }
 
     private static String subStr(String str, int length) {
@@ -21,5 +23,16 @@ public class Unicode {
             return str.substring(0, offset);
         }
         return str;
+    }
+
+    public static String substring(String source, int start, int end) {
+        String result;
+        try {
+            result = source.substring(source.offsetByCodePoints(0, start),
+                    source.offsetByCodePoints(0, end));
+        } catch (Exception e) {
+            result = "";
+        }
+        return result;
     }
 }
