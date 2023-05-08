@@ -8,17 +8,18 @@ class No000020Test {
     @Test
     void isValid() {
 
+        No000020 n20 = new No000020();
         // 通过
-        Assertions.assertTrue(new No000020().isValid("()"));
-        Assertions.assertTrue(new No000020().isValid("{}"));
-        Assertions.assertTrue(new No000020().isValid("[]"));
-        Assertions.assertTrue(new No000020().isValid("[({})]"));
-        Assertions.assertTrue(new No000020().isValid("[]{}()"));
+        Assertions.assertTrue(n20.isValid("()"));
+        Assertions.assertTrue(n20.isValid("{}"));
+        Assertions.assertTrue(n20.isValid("[]"));
+        Assertions.assertTrue(n20.isValid("[({})]"));
+        Assertions.assertTrue(n20.isValid("[]{}()"));
 
         // 不通过
-        Assertions.assertFalse(new No000020().isValid("[)"));
-        Assertions.assertFalse(new No000020().isValid("([)]"));
-        Assertions.assertFalse(new No000020().isValid("(()"));
-        Assertions.assertFalse(new No000020().isValid(")("));
+        Assertions.assertFalse(n20.isValid("[)"));
+        Assertions.assertFalse(n20.isValid("([)]"));
+        Assertions.assertFalse(n20.isValid("(()"));
+        Assertions.assertFalse(n20.isValid(")("));
     }
 }

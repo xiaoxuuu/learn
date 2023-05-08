@@ -8,9 +8,10 @@ class No000002Test {
     @Test
     void addTwoNumbers() {
 
-        Assertions.assertEquals("0", nodeToNumber(new No000002().addTwoNumbers(numberToNode(new int[]{0}), numberToNode(new int[]{0}))));
-        Assertions.assertEquals("708", nodeToNumber(new No000002().addTwoNumbers(numberToNode(new int[]{2, 4, 3}), numberToNode(new int[]{5, 6, 4}))));
-        Assertions.assertEquals("89990001", nodeToNumber(new No000002().addTwoNumbers(numberToNode(new int[]{9, 9, 9, 9, 9, 9, 9}), numberToNode(new int[]{9, 9, 9, 9}))));
+        No000002 n2 = new No000002();
+        Assertions.assertEquals("0", nodeToNumber(n2.addTwoNumbers(numberToNode(new int[]{0}), numberToNode(new int[]{0}))));
+        Assertions.assertEquals("708", nodeToNumber(n2.addTwoNumbers(numberToNode(new int[]{2, 4, 3}), numberToNode(new int[]{5, 6, 4}))));
+        Assertions.assertEquals("89990001", nodeToNumber(n2.addTwoNumbers(numberToNode(new int[]{9, 9, 9, 9, 9, 9, 9}), numberToNode(new int[]{9, 9, 9, 9}))));
     }
 
     private No000002.ListNode numberToNode(int[] num) {
