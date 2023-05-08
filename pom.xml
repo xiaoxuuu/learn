@@ -16,7 +16,6 @@
         <module>basic-leetcode</module>
         <module>basic-jdk</module>
         <module>mybatis-encryption-table</module>
-        <module>basic-common</module>
     </modules>
 
     <properties>
