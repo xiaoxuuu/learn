@@ -8,7 +8,7 @@ package live.xiaoxu.leetcode;
  */
 public class No000002 {
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         ListNode newNode = null;
         // 同级别节点不为空则计算
@@ -40,17 +40,6 @@ public class No000002 {
             newNode.next = addTwoNumbers(l1.next, l2.next);
         }
         return newNode;
-    }
-
-    public static void main(String[] args) {
-
-        ListNode listNode1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, null)))))));
-        ListNode listNode2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, null))));
-        ListNode listNode3 = addTwoNumbers(listNode1, listNode2);
-
-        ListNode listNode11 = new ListNode(2, new ListNode(4, new ListNode(3, null)));
-        ListNode listNode22 = new ListNode(5, new ListNode(6, new ListNode(4, null)));
-        ListNode listNode33 = addTwoNumbers(listNode11, listNode22);
     }
 
     public static class ListNode {
