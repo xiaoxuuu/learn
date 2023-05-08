@@ -12,25 +12,14 @@ import java.util.Random;
  */
 public class No000384 {
 
-    public static void main(String[] args) {
-
-        int[] nums = {1, 2, 3};
-        Solution solution = new Solution(nums);
-        int[] shuffle = solution.shuffle();
-        int[] reset = solution.reset();
-        int[] shuffle1 = solution.shuffle();
-        int[] shuffle2 = solution.shuffle();
-    }
-
     public static class Solution {
 
         private static final Random RANDOM = new Random();
-        int[] nums, ret;
+        int[] nums;
         List<Integer> list = new ArrayList<>();
 
         public Solution(int[] nums) {
             this.nums = nums;
-            this.ret = new int[nums.length];
         }
 
         public int[] reset() {
@@ -39,6 +28,7 @@ public class No000384 {
 
         public int[] shuffle() {
 
+            int[] ret = new int[nums.length];
             for (int num : nums) {
                 list.add(num);
             }
