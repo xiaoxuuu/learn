@@ -11,19 +11,7 @@ import java.util.Set;
  */
 public class No000014 {
 
-    public static void main(String[] args) {
-
-        String[] a1 = {"flower", "flow", "flight"};
-        String[] a2 = {"dog", "racecar", "car"};
-        String[] a3 = {""};
-        String[] a4 = {"a"};
-        System.out.println(longestCommonPrefix(a1));
-        System.out.println(longestCommonPrefix(a2));
-        System.out.println(longestCommonPrefix(a3));
-        System.out.println(longestCommonPrefix(a4));
-    }
-
-    public static String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefix(String[] strs) {
 
         if (strs.length == 0) {
             return "";
