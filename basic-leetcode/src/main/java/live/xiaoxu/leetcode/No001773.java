@@ -10,12 +10,6 @@ import java.util.List;
  */
 public class No001773 {
 
-    public static void main(String[] args) {
-
-        System.out.println(new No001773().countMatches(List.of(List.of("phone", "blue", "pixel"), List.of("computer", "silver", "lenovo"), List.of("phone", "gold", "iphone")), "color", "silver"));
-        System.out.println(new No001773().countMatches(List.of(List.of("phone", "blue", "pixel"), List.of("computer", "silver", "phone"), List.of("phone", "gold", "iphone")), "type", "phone"));
-    }
-
     /**
      * 通常解法
      *

@@ -11,13 +11,6 @@ import java.util.Map;
  */
 public class No002325 {
 
-    public static void main(String[] args) {
-
-        System.out.println(new No002325().decodeMessage("the quick brown fox jumps over the lazy dog", "thequickbrownfxjmpsvlazydg"));
-        System.out.println(new No002325().decodeMessage("the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"));
-        System.out.println(new No002325().decodeMessage("eljuxhpwnyrdgtqkviszcfmabo", "zwx hnfx lqantp mnoeius ycgk vcnjrdb"));
-    }
-
     /**
      * 通常解法
      *

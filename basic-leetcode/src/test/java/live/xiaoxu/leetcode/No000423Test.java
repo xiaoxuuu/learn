@@ -9,6 +9,7 @@ class No000423Test {
     void originalDigits() {
 
         No000423 n423 = new No000423();
+
         Assertions.assertEquals("012", n423.originalDigits("owoztneoer"));
         Assertions.assertEquals("45", n423.originalDigits("fviefuro"));
     }

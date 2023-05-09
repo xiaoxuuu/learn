@@ -8,18 +8,6 @@ package live.xiaoxu.leetcode;
  */
 public class No002011 {
 
-    public static void main(String[] args) {
-
-        String[] operations = new String[]{"X++", "++X", "--X", "X--"};
-        System.out.println(new No002011().finalValueAfterOperations(operations));
-
-        String[] operations2 = new String[]{"--X", "X++", "X++"};
-        System.out.println(new No002011().finalValueAfterOperations(operations2));
-
-        String[] operations3 = new String[]{"++X", "++X", "X++"};
-        System.out.println(new No002011().finalValueAfterOperations(operations3));
-    }
-
     /**
      * 通常解法
      *

@@ -8,8 +8,5 @@ package live.xiaoxu.leetcode;
  */
 public class No001757 {
 
-    public static void main(String[] args) {
-
-        // SELECT product_id FROM Products WHERE low_fats = 'Y' AND recyclable = 'Y';
-    }
+    // SELECT product_id FROM Products WHERE low_fats = 'Y' AND recyclable = 'Y';
 }
