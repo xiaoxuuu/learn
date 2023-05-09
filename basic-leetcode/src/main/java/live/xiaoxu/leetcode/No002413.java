@@ -8,13 +8,6 @@ package live.xiaoxu.leetcode;
  */
 public class No002413 {
 
-    public static void main(String[] args) {
-
-        System.out.println(new No002413().smallestEvenMultiple(2));
-        System.out.println(new No002413().smallestEvenMultiple(5));
-        System.out.println(new No002413().smallestEvenMultiple(6));
-    }
-
     /**
      * 通常解法
      *

@@ -1,7 +1,5 @@
 package live.xiaoxu.leetcode;
 
-import java.util.Arrays;
-
 /**
  * <p><a href="https://leetcode.cn/problems/convert-the-temperature/">2469. 温度转换</a></p>
  *
@@ -9,12 +7,6 @@ import java.util.Arrays;
  * @since 2023/2/8 10:58
  */
 public class No002469 {
-
-    public static void main(String[] args) {
-
-        System.out.println(Arrays.toString(new No002469().convertTemperature(36.50)));
-        System.out.println(Arrays.toString(new No002469().convertTemperature(122.11)));
-    }
 
     /**
      * 通常解法

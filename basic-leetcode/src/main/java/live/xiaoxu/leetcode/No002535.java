@@ -8,22 +8,6 @@ package live.xiaoxu.leetcode;
  */
 public class No002535 {
 
-    public static void main(String[] args) {
-
-        System.out.println(new No002535().differenceOfSum(new int[]{1, 15, 6, 3}));
-        System.out.println(new No002535().differenceOfSum(new int[]{1, 2, 3, 4}));
-    }
-
-    private static int digitSum(int num) {
-
-        int res = 0;
-        while (num >= 10) {
-            res += num % 10;
-            num = num / 10;
-        }
-        return res + num;
-    }
-
     /**
      * 通常解法
      *
@@ -38,5 +22,15 @@ public class No002535 {
             b += digitSum(num);
         }
         return a - b;
+    }
+
+    private int digitSum(int num) {
+
+        int res = 0;
+        while (num >= 10) {
+            res += num % 10;
+            num = num / 10;
+        }
+        return res + num;
     }
 }
