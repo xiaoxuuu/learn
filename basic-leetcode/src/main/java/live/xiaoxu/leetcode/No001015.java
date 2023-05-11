@@ -2,8 +2,9 @@ package live.xiaoxu.leetcode;
 
 /**
  * <p><a href="https://leetcode.cn/problems/smallest-integer-divisible-by-k/">1015. 可被 K 整除的最小整数</a></p>
- * <p>解此题需了解 BFS(广度优先搜索)</p>
- * <p>以及 2 或 5 的倍数永远不以 0 结尾</p>
+ * <p>解此题需了解：</p>
+ * <p>1. BFS(广度优先搜索)</p>
+ * <p>2. 2 或 5 的倍数永远不以 0 结尾</p>
  *
  * @author 小徐
  * @since 2023/5/10 10:00
