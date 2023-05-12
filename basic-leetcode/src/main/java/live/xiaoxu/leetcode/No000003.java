@@ -20,9 +20,6 @@ public class No000003 {
         // 最长的长度
         int maxFinalLength = characterSet.size();
 
-        // 当前子串
-        Set<Character> tempCharacterSet = new HashSet<>();
-
         // 最大的子字符串长度
         int maxLength = 0;
         for (int index = 0; index < charArray.length; index++) {
@@ -30,16 +27,16 @@ public class No000003 {
             // 读取当前索引最大不重复子串长度
             for (int tempLength = 1; tempLength + index <= charArray.length; tempLength++) {
                 // 清空上次记录
-                tempCharacterSet.clear();
+                characterSet.clear();
                 // 取出指定位置指定长度子串
                 for (int j = index; j < index + tempLength; j++) {
                     if (charArray.length <= j) {
                         break;
                     }
-                    tempCharacterSet.add(charArray[j]);
+                    characterSet.add(charArray[j]);
                 }
                 // 当前子串是否重复
-                if (tempCharacterSet.size() != tempLength) {
+                if (characterSet.size() != tempLength) {
                     break;
                 }
                 // 如果查找的子串长度等于最长长度，停止查找
