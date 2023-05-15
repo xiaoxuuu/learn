@@ -15,12 +15,13 @@ public class No001072 {
 
         Map<String, Integer> map = new HashMap<>(matrix.length);
         int max = 0, length = matrix[0].length;
-        char[] cs = new char[length];
-        for (int[] matrix1 : matrix) {
+        char[] charArray = new char[length];
+        for (int[] intArray : matrix) {
             for (int j = 0; j < length; j++) {
-                cs[j] = (char) (matrix1[0] ^ matrix1[j]);
+                // 异或，将部分数据取反
+                charArray[j] = (char) (intArray[0] ^ intArray[j]);
             }
-            max = Math.max(max, map.merge(String.valueOf(cs), 1, Integer::sum));
+            max = Math.max(max, map.merge(String.valueOf(charArray), 1, Integer::sum));
         }
         return max;
     }
