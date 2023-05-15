@@ -1,6 +1,5 @@
 package live.xiaoxu.leetcode;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,21 +14,14 @@ public class No001072 {
     public int maxEqualRowsAfterFlips(int[][] matrix) {
 
         Map<String, Integer> map = new HashMap<>(matrix.length);
-        int max = 0;
-
+        int max = 0, length = matrix[0].length;
+        char[] cs = new char[length];
         for (int[] matrix1 : matrix) {
-            if (matrix1[0] == 1) {
-                for (int j = 0; j < matrix1.length; j++) {
-                    matrix1[j] = matrix1[j] == 0 ? 1 : 0;
-                }
+            for (int j = 0; j < length; j++) {
+                cs[j] = (char) (matrix1[0] ^ matrix1[j]);
             }
-            // hash
-            String string = Arrays.toString(matrix1);
-            int integer = map.computeIfAbsent(string, k -> 0);
-            map.put(string, integer + 1);
-            max = Math.max(max, integer + 1);
+            max = Math.max(max, map.merge(String.valueOf(cs), 1, Integer::sum));
         }
-
         return max;
     }
 }
