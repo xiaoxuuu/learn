@@ -10,10 +10,10 @@ class No000003Test {
 
         No000003 n3 = new No000003();
 
+        Assertions.assertEquals(2, n3.lengthOfLongestSubstring("au"));
         Assertions.assertEquals(3, n3.lengthOfLongestSubstring("pwwkew"));
-        //Assertions.assertEquals(2, n3.lengthOfLongestSubstring("au"));
-        //Assertions.assertEquals(1, n3.lengthOfLongestSubstring("a"));
-        //Assertions.assertEquals(3, n3.lengthOfLongestSubstring("abcabcbb"));
-        //Assertions.assertEquals(1, n3.lengthOfLongestSubstring("bbbbb"));
+        Assertions.assertEquals(1, n3.lengthOfLongestSubstring("a"));
+        Assertions.assertEquals(3, n3.lengthOfLongestSubstring("abcabcbb"));
+        Assertions.assertEquals(1, n3.lengthOfLongestSubstring("bbbbb"));
     }
 }
