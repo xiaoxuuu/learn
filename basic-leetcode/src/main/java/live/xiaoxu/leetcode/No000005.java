@@ -1,7 +1,5 @@
 package live.xiaoxu.leetcode;
 
-import java.util.Stack;
-
 /**
  * <p><a href="https://leetcode.cn/problems/longest-palindromic-substring/">5. 最长回文子串</a></p>
  *
@@ -22,15 +20,16 @@ public class No000005 {
         // 循环每一次
         for (int i = 0; i < length; i++) {
 
-            // 已知子串长度超过字符串一半，则剩下的一半无需判断
+            // 已知子串的长度若超过字符串一半，则剩下的一半无需判断
             if (s.length() < (end - begin) * 2) {
                 break;
             }
             for (int j = i + 1; j < length; j++) {
+                // 默认子串符合回文子串要求
                 boolean choose = true;
-                Stack<Character> stack = new Stack<>();
                 int tempJ = j;
-                for (int k = i; k <= j; k++) {
+                // 循环子串的一半验证
+                for (int k = i; k <= ((j - i) / 2 + i); k++) {
                     if (charArray[k] != charArray[tempJ]) {
                         choose = false;
                         break;
