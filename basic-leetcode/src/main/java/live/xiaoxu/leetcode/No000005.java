@@ -10,6 +10,9 @@ public class No000005 {
 
     public String longestPalindrome(String s) {
 
+        if (s == null || s.length() == 0) {
+            return "";
+        }
         int length = s.length();
         if (length == 1) {
             return s;
