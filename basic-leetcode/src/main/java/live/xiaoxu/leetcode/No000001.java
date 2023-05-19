@@ -16,10 +16,9 @@ public class No000001 {
         for (int i = 0; i < nums.length; i++) {
             int result = target - nums[i];
             if (map.containsKey(result)) {
-                return new int[]{i, map.get(result)};
+                return new int[]{map.get(result), i};
             }
             map.put(nums[i], i);
-            map.put(-result, i);
         }
         return null;
     }
