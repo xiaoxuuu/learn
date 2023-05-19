@@ -12,6 +12,47 @@ import java.util.List;
 public class No000006 {
 
     /**
+     * 折返法
+     *
+     * @param s       字符串
+     * @param numRows 所需行
+     * @return 结果
+     */
+    public String convert(String s, int numRows) {
+
+        int length = s.length();
+        if (length <= 1 || numRows <= 1) {
+            return s;
+        }
+
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            rows.add(new StringBuilder());
+        }
+
+        // 当前行
+        int i = 0;
+        // 是否折返
+        int flag = -1;
+        for (char c : s.toCharArray()) {
+            // 添加元素
+            rows.get(i).append(c);
+            // 判断下次是否需要折返
+            if (i == 0 || i == numRows - 1) {
+                flag = -flag;
+            }
+            // 获取下一行索引
+            i += flag;
+        }
+
+        StringBuilder res = new StringBuilder();
+        for (StringBuilder row : rows) {
+            res.append(row);
+        }
+        return res.toString();
+    }
+
+    /**
      * <p>规律法：</p>
      * <p>2 行：</p>
      * <pre>0 2 4 6 8 10 12 14 16 18</pre>
@@ -30,7 +71,7 @@ public class No000006 {
      * @param numRows 所需行
      * @return 结果
      */
-    public String convert(String s, int numRows) {
+    public String convertTwo(String s, int numRows) {
 
         int length = s.length();
         if (length <= 1 || numRows == 1) {
