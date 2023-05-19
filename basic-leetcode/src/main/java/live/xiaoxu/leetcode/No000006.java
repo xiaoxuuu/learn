@@ -39,27 +39,25 @@ public class No000006 {
 
         // 所有字符
         char[] charArray = s.toCharArray();
-        List<Character>[] listArray = new ArrayList[numRows];
-        for (int i = 0; i < listArray.length; i++) {
-            listArray[i] = new ArrayList<>();
+        List<StringBuilder> list = new ArrayList<>(numRows);
+        for (int i = 0; i < numRows; i++) {
+            list.add(new StringBuilder());
         }
 
         for (int i = 0; i < charArray.length; i++) {
             int k = i % (2 * numRows - 2);
             if (k <= numRows - 1) {
                 // s[i] 就属于第 k 行
-                listArray[k].add(charArray[i]);
+                list.get(k).append(charArray[i]);
             } else {
                 // s[i] 就属于 2n-2-k 行
-                listArray[2 * numRows - 2 - k].add(charArray[i]);
+                list.get(2 * numRows - 2 - k).append(charArray[i]);
             }
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        for (List<Character> characters : listArray) {
-            for (Character character : characters) {
-                stringBuilder.append(character);
-            }
+        for (StringBuilder stringBuilderField : list) {
+            stringBuilder.append(stringBuilderField.toString());
         }
         return stringBuilder.toString();
     }
