@@ -9,10 +9,10 @@ import java.util.Scanner;
 public class BinaryTreeUtil {
 
     /**
-     * 清除某个子树的所有节点
-     * 二叉树的清空：
-     * 首先提供一个清空以某个节点为根节点的子树的方法，既递归地删除每个节点；
-     * 接着提供一个删除树的方法，直接通过第一种方法删除到根节点即可
+     * <p>清除某个子树的所有节点</p>
+     * <p>二叉树的清空：</p>
+     * <p>首先提供一个清空以某个节点为根节点的子树的方法，既递归地删除每个节点；</p>
+     * <p>接着提供一个删除树的方法，直接通过第一种方法删除到根节点即可</p>
      */
     public static void clear(BinaryTreeNode node) {
 
@@ -25,12 +25,12 @@ public class BinaryTreeUtil {
     }
 
     /**
-     * 获取以某节点为子树的高度
-     * 求二叉树的高度：
-     * 首先要一种获取以某个节点为子树的高度的方法，使用递归调用。
-     * 如果一个节点为空，那么这个节点肯定是一颗空树，高度为 0；
-     * 如果不为空，那么我们要遍历地比较它的左子树高度和右子树高度，高的一个为这个子树的最大高度，然后加上自己本身的高度就是了
-     * 获取二叉树的高度，只需要调用第一种方法，即传入根节点
+     * <p>获取以某节点为子树的高度</p>
+     * <p>求二叉树的高度：</p>
+     * <p>首先要一种获取以某个节点为子树的高度的方法，使用递归调用。</p>
+     * <p>如果一个节点为空，那么这个节点肯定是一颗空树，高度为 0；</p>
+     * <p>如果不为空，那么我们要遍历地比较它的左子树高度和右子树高度，高的一个为这个子树的最大高度，然后加上自己本身的高度就是了</p>
+     * <p>获取二叉树的高度，只需要调用第一种方法，即传入根节点</p>
      */
     public static int height(BinaryTreeNode node) {
 
@@ -48,12 +48,12 @@ public class BinaryTreeUtil {
     }
 
     /**
-     * 求二叉树的节点数：
-     * 求节点数时，我们看看获取某个节点为子树的节点数的实现。
-     * 首先节点为空，则个数肯定为 0；
-     * 如果不为空，那就算上这个节点之后继续递归所有左右子树的子节点数，
-     * 全部相加就是以所给节点为根的子树的节点数
-     * 如果求二叉树的节点数，则输入根节点即可
+     * <p>求二叉树的节点数：</p>
+     * <p>求节点数时，我们看看获取某个节点为子树的节点数的实现。</p>
+     * <p>首先节点为空，则个数肯定为 0；</p>
+     * <p>如果不为空，那就算上这个节点之后继续递归所有左右子树的子节点数，</p>
+     * <p>全部相加就是以所给节点为根的子树的节点数</p>
+     * <p>如果求二叉树的节点数，则输入根节点即可</p>
      */
     public static int size(BinaryTreeNode node) {
 
@@ -68,7 +68,7 @@ public class BinaryTreeUtil {
     }
 
     /**
-     * node 节点在 subTree 子树中的父节点
+     * <p>node 节点在 subTree 子树中的父节点</p>
      */
     public static BinaryTreeNode getParent(BinaryTreeNode subTree, BinaryTreeNode node) {
 
@@ -91,12 +91,12 @@ public class BinaryTreeUtil {
     }
 
     /**
-     * 先根遍历(PreOrder):
-     * 若二叉树为空，则退出，否则进行下面操作
-     * 1. 访问根节点
-     * 2. 先根遍历左子树
-     * 3. 先根遍历右子树
-     * 4. 退出
+     * <p>先根遍历(PreOrder):</p>
+     * <p>若二叉树为空，则退出，否则进行下面操作</p>
+     * <p>1. 访问根节点</p>
+     * <p>2. 先根遍历左子树</p>
+     * <p>3. 先根遍历右子树</p>
+     * <p>4. 退出</p>
      */
     public static void preOrder(BinaryTreeNode node) {
 
@@ -111,12 +111,12 @@ public class BinaryTreeUtil {
     }
 
     /**
-     * 中根遍历(InOrder):
-     * 若二叉树为空，则退出，否则进行下面操作
-     * 1. 中根遍历左子树
-     * 2. 访问根节点
-     * 3. 中根遍历右子树
-     * 4. 退出
+     * <p>中根遍历(InOrder):</p>
+     * <p>若二叉树为空，则退出，否则进行下面操作</p>
+     * <p>1. 中根遍历左子树</p>
+     * <p>2. 访问根节点</p>
+     * <p>3. 中根遍历右子树</p>
+     * <p>4. 退出</p>
      */
     public static void inOrder(BinaryTreeNode node) {
 
@@ -131,12 +131,12 @@ public class BinaryTreeUtil {
     }
 
     /**
-     * 后根遍历(PostOrder):
-     * 若二叉树为空，则退出，否则进行下面操作
-     * 1. 后根遍历左子树
-     * 2. 后根遍历右子树
-     * 3. 访问根节点
-     * 4. 退出
+     * <p>后根遍历(PostOrder):</p>
+     * <p>若二叉树为空，则退出，否则进行下面操作</p>
+     * <p>1. 后根遍历左子树</p>
+     * <p>2. 后根遍历右子树</p>
+     * <p>3. 访问根节点</p>
+     * <p>4. 退出</p>
      */
     public static void postOrder(BinaryTreeNode node) {
 
@@ -151,9 +151,9 @@ public class BinaryTreeUtil {
     }
 
     /**
-     * 根据前序遍历结果反向生成二叉树
-     * 无子节点使用 # 占位
-     * 例子：AB#D##C##
+     * <p>根据前序遍历结果反向生成二叉树</p>
+     * <p>无子节点使用 # 占位</p>
+     * <p>例子：AB#D##C##</p>
      */
     public static void createTreeByPreOrder(BinaryTreeNode node) {
 
