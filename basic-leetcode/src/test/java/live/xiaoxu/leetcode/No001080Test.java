@@ -17,6 +17,7 @@ class No001080Test {
         while (index < array.length) {
 
             No001080.TreeNode node = linkedList.poll();
+            // TODO
             node.val = array[index];
             if ((index + 1) * 2 - 1 < array.length) {
                 node.left = new No001080.TreeNode(node);
