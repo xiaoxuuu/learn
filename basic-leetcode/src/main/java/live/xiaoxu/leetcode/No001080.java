@@ -10,24 +10,23 @@ public class No001080 {
 
     private static boolean remove(TreeNode node, TreeNode nodeParent, int pathCount, int limit) {
 
-        boolean finalNode = true;
+        boolean leftNull = true;
+        boolean rightNull = true;
         if (node.left != null) {
-            finalNode = remove(node.left, node, pathCount + node.val, limit);
+            leftNull = remove(node.left, node, pathCount + node.val, limit);
         }
         if (node.right != null) {
-            finalNode = remove(node.right, node, pathCount + node.val, limit);
+            rightNull = remove(node.right, node, pathCount + node.val, limit);
         }
 
-        if (finalNode && nodeParent != null && pathCount + node.val < limit) {
-            if (nodeParent.left == node) {
-                nodeParent.left = null;
-                return true;
+        if (nodeParent != null && pathCount + node.val < limit) {
+            if (leftNull) {
+                node.left = null;
             }
-            if (nodeParent.right == node) {
-                nodeParent.right = null;
-                return true;
+            if (rightNull) {
+                node.right = null;
             }
-            return false;
+            return leftNull && rightNull;
         }
         return false;
     }

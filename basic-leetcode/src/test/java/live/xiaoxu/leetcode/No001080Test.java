@@ -17,15 +17,26 @@ class No001080Test {
         while (index < array.length) {
 
             No001080.TreeNode node = linkedList.poll();
-            // TODO
-            node.val = array[index];
-            if ((index + 1) * 2 - 1 < array.length) {
-                node.left = new No001080.TreeNode(node);
-                linkedList.add(node.left);
+            if (array[index] != null) {
+                node.val = array[index];
             }
-            if ((index + 1) * 2 < array.length) {
-                node.right = new No001080.TreeNode(node);
-                linkedList.add(node.right);
+            int leftIndex = (index + 1) * 2 - 1;
+            if (leftIndex < array.length) {
+                if (node != null) {
+                    node.left = array[leftIndex] == null ? null : new No001080.TreeNode(array[leftIndex]);
+                    linkedList.add(node.left);
+                } else {
+                    linkedList.add(null);
+                }
+            }
+            int rightIndex = leftIndex + 1;
+            if (rightIndex < array.length) {
+                if (node != null) {
+                    node.right = array[rightIndex] == null ? null : new No001080.TreeNode(array[rightIndex]);
+                    linkedList.add(node.right);
+                } else {
+                    linkedList.add(null);
+                }
             }
             index++;
         }
@@ -97,21 +108,16 @@ class No001080Test {
         }
 
         list.addAll(toList(nextLevelList));
-
-        if (noData) {
-            return list;
-        }
-
         return list;
     }
 
     @Test
     void sufficientSubset() {
 
-        No001080.TreeNode node1 = toNode(new Integer[]{1, 2, 3, 4, -99});
-        No001080.TreeNode node11 = toNode(new Integer[]{1, 2, 3});
-        No001080.TreeNode node = toNode(new Integer[]{1, -99});
-        No001080.TreeNode node2 = toNode(new Integer[]{1, 2, 3, 4, -99, -99, 7, 8, 9, -99, -99, 12, 13, -99, 14});
+//        No001080.TreeNode node1 = toNode(new Integer[]{1, 2, 3, 4, -99});
+//        No001080.TreeNode node11 = toNode(new Integer[]{1, 2, 3});
+//        No001080.TreeNode node = toNode(new Integer[]{1, -99});
+//        No001080.TreeNode node2 = toNode(new Integer[]{1, 2, 3, 4, -99, -99, 7, 8, 9, -99, -99, 12, 13, -99, 14});
         No001080 n1080 = new No001080();
 
         Integer[] input4 = {5, 4, 8, 11, null, 17, 4, 7, 1, null, null, 5, 3};
