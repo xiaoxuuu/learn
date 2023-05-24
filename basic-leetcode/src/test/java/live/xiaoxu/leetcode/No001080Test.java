@@ -8,6 +8,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * 此题验证存在问题，请依据实际题目进行判定
+ */
 class No001080Test {
 
     private static No001080.TreeNode toNode(Integer[] array) {
@@ -132,11 +135,11 @@ class No001080Test {
     @Test
     void sufficientSubset() {
 
-//        No001080.TreeNode node12 = toNode(new Integer[]{5, 4, 8, 11, null, 17, 4, 7, 1, null, null, 5, 3});
-//        No001080.TreeNode node1 = toNode(new Integer[]{1, 2, 3, 4, -99});
-//        No001080.TreeNode node11 = toNode(new Integer[]{1, 2, 3});
+        No001080.TreeNode node12 = toNode(new Integer[]{5, 4, 8, 11, null, 17, 4, 7, 1, null, null, 5, 3});
+        No001080.TreeNode node1 = toNode(new Integer[]{1, 2, 3, 4, -99});
+        No001080.TreeNode node11 = toNode(new Integer[]{1, 2, 3});
         No001080.TreeNode node = toNode(new Integer[]{1, -99});
-//        No001080.TreeNode node2 = toNode(new Integer[]{1, 2, 3, 4, -99, -99, 7, 8, 9, -99, -99, 12, 13, -99, 14});
+        No001080.TreeNode node2 = toNode(new Integer[]{1, 2, 3, 4, -99, -99, 7, 8, 9, -99, -99, 12, 13, -99, 14});
         No001080 n1080 = new No001080();
 
         Integer[] input4 = {10, 5, 10};

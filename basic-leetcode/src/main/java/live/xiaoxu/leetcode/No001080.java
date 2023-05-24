@@ -25,21 +25,17 @@ public class No001080 {
             return pathCountThis < limit;
         }
 
-        boolean leftNull = true;
-        boolean rightNull = true;
         if (node.left != null) {
-            leftNull = remove(node.left, pathCountThis, limit);
-            if (leftNull) {
+            if (remove(node.left, pathCountThis, limit)) {
                 node.left = null;
             }
         }
         if (node.right != null) {
-            rightNull = remove(node.right, pathCountThis, limit);
-            if (rightNull) {
+            if (remove(node.right, pathCountThis, limit)) {
                 node.right = null;
             }
         }
-        return leftNull && rightNull;
+        return node.left == null && node.right == null;
     }
 
     public TreeNode sufficientSubset(TreeNode root, int limit) {
