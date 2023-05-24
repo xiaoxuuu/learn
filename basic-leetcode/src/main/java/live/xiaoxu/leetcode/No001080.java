@@ -8,39 +8,48 @@ package live.xiaoxu.leetcode;
  */
 public class No001080 {
 
-    private static boolean remove(TreeNode node, TreeNode nodeParent, int pathCount, int limit) {
+    /**
+     * 递归移除不合格叶子节点，节点数据 null 则视为不合格
+     *
+     * @param node      根节点
+     * @param pathCount 当前路径结果
+     * @param limit     合格值，大于此数据视为合格
+     * @return 不合格或节点为空 true
+     */
+    private static boolean remove(TreeNode node, int pathCount, int limit) {
+
+        // 本级和
+        int pathCountThis = pathCount + node.val;
+
+        if (node.left == null && node.right == null) {
+            return pathCountThis < limit;
+        }
 
         boolean leftNull = true;
         boolean rightNull = true;
         if (node.left != null) {
-            leftNull = remove(node.left, node, pathCount + node.val, limit);
-        }
-        if (node.right != null) {
-            rightNull = remove(node.right, node, pathCount + node.val, limit);
-        }
-
-        if (nodeParent != null && pathCount + node.val < limit) {
+            leftNull = remove(node.left, pathCountThis, limit);
             if (leftNull) {
                 node.left = null;
             }
+        }
+        if (node.right != null) {
+            rightNull = remove(node.right, pathCountThis, limit);
             if (rightNull) {
                 node.right = null;
             }
-            return leftNull && rightNull;
         }
-        return false;
+        return leftNull && rightNull;
     }
 
     public TreeNode sufficientSubset(TreeNode root, int limit) {
-        remove(root, null, 0, limit);
-        return root;
+        boolean remove = remove(root, 0, limit);
+        return remove ? null : root;
     }
 
     static class TreeNode {
 
         int val;
-
-        TreeNode parent;
 
         TreeNode left;
 
@@ -51,11 +60,6 @@ public class No001080 {
 
         TreeNode(int val) {
             this.val = val;
-        }
-
-        TreeNode(TreeNode parent) {
-            this.val = -Integer.MAX_VALUE;
-            this.parent = parent;
         }
 
         TreeNode(int val, TreeNode left, TreeNode right) {
