@@ -10,6 +10,8 @@ class No000009Test {
 
         No000009 n9 = new No000009();
 
+        Assertions.assertTrue(n9.isPalindrome(1001));
+        Assertions.assertTrue(n9.isPalindrome(1));
         Assertions.assertTrue(n9.isPalindrome(121));
         Assertions.assertTrue(n9.isPalindrome(0));
         Assertions.assertFalse(n9.isPalindrome(-121));

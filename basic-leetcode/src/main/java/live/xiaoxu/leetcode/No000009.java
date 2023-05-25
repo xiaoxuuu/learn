@@ -13,18 +13,13 @@ public class No000009 {
         if (x < 0) {
             return false;
         }
-        String s = String.valueOf(x);
-        if (s.length() / 2 == 0 && s.length() != 1) {
-            return false;
+        int num = x;
+        int temp = 0;
+        while (num != 0) {
+            int j = num % 10;
+            num = num / 10;
+            temp = temp * 10 + j;
         }
-        for (int i = 0; i < s.length(); i++) {
-            if (i == s.length() - 1 - i) {
-                return true;
-            }
-            if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
-                return false;
-            }
-        }
-        return true;
+        return temp == x;
     }
 }
