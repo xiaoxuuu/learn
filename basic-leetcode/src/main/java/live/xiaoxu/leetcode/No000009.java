@@ -10,15 +10,15 @@ public class No000009 {
 
     public boolean isPalindrome(int x) {
 
-        if (x < 0) {
+        // 小于 0 或 0 结尾均不是回文数
+        if (x < 0 || x % 10 == 0 && x != 0) {
             return false;
         }
         int num = x;
         int temp = 0;
         while (num != 0) {
-            int j = num % 10;
-            num = num / 10;
-            temp = temp * 10 + j;
+            temp = temp * 10 + num % 10;
+            num /= 10;
         }
         return temp == x;
     }
