@@ -10,11 +10,7 @@ public class No002451 {
 
     public String oddString(String[] words) {
 
-        if (words.length == 1) {
-            return words[0];
-        }
         int[] intArray = new int[words[0].length() - 1];
-
         for (int i = 0; i < words[0].length() - 1; i++) {
             intArray[i] = words[0].charAt(i + 1) - words[0].charAt(i);
         }
@@ -23,13 +19,10 @@ public class No002451 {
         int equalStrNum = 0;
         // 不与第 0 相同的字符串索引位置
         int indexNotEqual = -1;
-        boolean equalStrNumAdd;
         for (int i = 1; i < words.length; i++) {
-            equalStrNumAdd = true;
             for (int j = 0; j < words[i].length() - 1; j++) {
-                int tempSub = words[i].charAt(j + 1) - words[i].charAt(j);
                 // 遇到与第 0 个不同的字符串
-                if (intArray[j] != tempSub) {
+                if (intArray[j] != words[i].charAt(j + 1) - words[i].charAt(j)) {
                     // 已有与第 0 相同字符串，返回当前
                     if (equalStrNum != 0) {
                         return words[i];
@@ -39,13 +32,12 @@ public class No002451 {
                         return words[0];
                     }
                     indexNotEqual = i;
-                    equalStrNumAdd = false;
+                    // 与第 0 不同，减去下面自增的数据
+                    equalStrNum--;
                     break;
                 }
             }
-            if (equalStrNumAdd) {
-                equalStrNum++;
-            }
+            equalStrNum++;
         }
         return words[indexNotEqual];
     }
