@@ -14,12 +14,13 @@ public class No000009 {
         if (x < 0 || x % 10 == 0 && x != 0) {
             return false;
         }
-        int num = x;
         int temp = 0;
-        while (num != 0) {
-            temp = temp * 10 + num % 10;
-            num /= 10;
+        // 仅需循环一半数字
+        while (x > temp) {
+            temp = temp * 10 + x % 10;
+            x /= 10;
         }
-        return temp == x;
+        // 偶数位数直接判断，奇数位数去除中间位数后判断
+        return temp == x || temp / 10 == x;
     }
 }
