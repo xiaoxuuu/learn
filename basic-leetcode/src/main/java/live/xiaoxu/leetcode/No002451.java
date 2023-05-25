@@ -10,9 +10,9 @@ public class No002451 {
 
     public String oddString(String[] words) {
 
-        int[] intArray = new int[words[0].length() - 1];
+        int[] array = new int[words[0].length() - 1];
         for (int i = 0; i < words[0].length() - 1; i++) {
-            intArray[i] = words[0].charAt(i + 1) - words[0].charAt(i);
+            array[i] = words[0].charAt(i + 1) - words[0].charAt(i);
         }
 
         // 与第 0 相同的字符串数量
@@ -22,7 +22,7 @@ public class No002451 {
         for (int i = 1; i < words.length; i++) {
             for (int j = 0; j < words[i].length() - 1; j++) {
                 // 遇到与第 0 个不同的字符串
-                if (intArray[j] != words[i].charAt(j + 1) - words[i].charAt(j)) {
+                if (array[j] != words[i].charAt(j + 1) - words[i].charAt(j)) {
                     // 已有与第 0 相同字符串，返回当前
                     if (equalStrNum != 0) {
                         return words[i];
