@@ -44,21 +44,11 @@ public class No001091 {
             for (int i = 0; i < size; i++) {
                 // 取出第一个数据并将其从队列移除
                 int[] poll = queue.poll();
-                // 判断是否到达终点
-                if (poll[0] == length - 1 && poll[1] == length - 1) {
-                    return depth;
-                }
                 // 搜索此方块周围方块
                 for (int[] ints : search) {
                     int x = poll[0] + ints[0];
-                    if (x < 0 || x > length - 1) {
-                        continue;
-                    }
                     int y = poll[1] + ints[1];
-                    if (y < 0 || y > length - 1) {
-                        continue;
-                    }
-                    if (grid[x][y] != 0) {
+                    if (x < 0 || x > length - 1 || y < 0 || y > length - 1 || grid[x][y] != 0) {
                         continue;
                     }
                     if (x == length - 1 && y == length - 1) {
