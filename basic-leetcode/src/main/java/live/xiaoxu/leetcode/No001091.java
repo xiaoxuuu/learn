@@ -40,6 +40,7 @@ public class No001091 {
         int depth = 1;
         while (!queue.isEmpty()) {
             depth++;
+            // 每层搜索结束后才可以将深度 +1
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 // 取出第一个数据并将其从队列移除
