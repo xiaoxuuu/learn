@@ -15,17 +15,15 @@ public class No001093 {
     public double[] sampleStats(int[] count) {
 
         // 最小数（数组索引）
-        double minimum = Double.MAX_VALUE;
+        int minimum = 255;
         // 最大数（数组索引）
-        double maximum = Double.MIN_VALUE;
+        int maximum = 0;
         // 平均值（数组索引 * 数据）/ 总数
         double mean = 0D;
         // 中位数（数据）
         double median = 0D;
         // 众数（数组索引）
-        double mode = 0D;
-        // 最多次出现数的值
-        int maxShowTimes = 0;
+        int mode = 0;
         // 总共出现的数字个数
         long allTimes = 0;
         LinkedHashMap<Integer, Long> map = new LinkedHashMap<>();
@@ -33,22 +31,13 @@ public class No001093 {
             if (count[i] == 0) {
                 continue;
             }
-            // 数字 i 的出现次数
-            int times = count[i];
             maximum = Math.max(maximum, i);
-            minimum = Math.min(minimum, i);
-            int max = Math.max(maxShowTimes, times);
-            if (max == times) {
-                maxShowTimes = max;
+            if (count[i] > count[mode]) {
                 mode = i;
             }
             allTimes += count[i];
+            mean += (double) count[i] * i;
             map.put(i, (long) count[i]);
-        }
-
-        // 平均数
-        for (Map.Entry<Integer, Long> entry : map.entrySet()) {
-            mean += entry.getKey() * entry.getValue();
         }
 
         // 中位数位置
@@ -71,6 +60,6 @@ public class No001093 {
                 break;
             }
         }
-        return new double[]{minimum, maximum, mean / allTimes, median, mode};
+        return new double[]{map.entrySet().iterator().next().getKey(), maximum, mean / allTimes, median, mode};
     }
 }
