@@ -14,8 +14,6 @@ public class No001093 {
 
     public double[] sampleStats(int[] count) {
 
-        // 最小数（数组索引）
-        int minimum = 255;
         // 最大数（数组索引）
         int maximum = 0;
         // 平均值（数组索引 * 数据）/ 总数
@@ -31,7 +29,7 @@ public class No001093 {
             if (count[i] == 0) {
                 continue;
             }
-            maximum = Math.max(maximum, i);
+            maximum = i;
             if (count[i] > count[mode]) {
                 mode = i;
             }
