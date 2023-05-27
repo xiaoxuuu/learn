@@ -23,7 +23,7 @@ public class No000001 {
         return null;
     }
 
-    public int[] twoSumOen(int[] nums, int target) {
+    public int[] twoSumOne(int[] nums, int target) {
 
         for (int i = 0; i < nums.length; i++) {
             int sub = target - nums[i];
