@@ -8,7 +8,7 @@ class No001439WaitTest {
     @Test
     void kthSmallest() {
 
-        No001439wait n1439 = new No001439wait();
+        No001439_3_ n1439 = new No001439_3_();
 
         int[][] intArray12 = {
                 {1, 10, 10},
