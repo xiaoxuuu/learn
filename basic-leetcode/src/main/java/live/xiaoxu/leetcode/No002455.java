@@ -8,16 +8,6 @@ package live.xiaoxu.leetcode;
  */
 public class No002455 {
 
-    private static boolean div(int i) {
-
-        int k = 0;
-        while (i != 0) {
-            k += i % 10;
-            i = i / 10;
-        }
-        return k % 3 == 0;
-    }
-
     public int averageValue(int[] nums) {
 
         // 总数、和
@@ -26,7 +16,7 @@ public class No002455 {
             if (num % 2 != 0) {
                 continue;
             }
-            if (div(num)) {
+            if (num % 3 == 0) {
                 sum += num;
                 total++;
             }
