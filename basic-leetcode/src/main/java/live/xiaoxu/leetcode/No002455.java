@@ -13,17 +13,11 @@ public class No002455 {
         // 总数、和
         int total = 0, sum = 0;
         for (int num : nums) {
-            if (num % 2 != 0) {
-                continue;
-            }
-            if (num % 3 == 0) {
+            if (num % 6 == 0) {
                 sum += num;
                 total++;
             }
         }
-        if (total == 0) {
-            return 0;
-        }
-        return sum / total;
+        return total == 0 ? total : sum / total;
     }
 }
