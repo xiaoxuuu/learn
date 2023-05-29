@@ -8,5 +8,6 @@ package live.xiaoxu.leetcode;
  */
 public class No000620_1 {
 
+    // SELECT * FROM cinema WHERE description <> 'boring' AND MOD (id, 2) = 1 ORDER BY rating DESC;
     // SELECT * FROM cinema WHERE description != 'boring' AND id % 2 != 0 ORDER BY rating DESC;
 }
