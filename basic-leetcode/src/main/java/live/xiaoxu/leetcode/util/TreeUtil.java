@@ -15,21 +15,32 @@ public class TreeUtil {
         TreeNode treeNode = new TreeNode(array[index]);
         LinkedList<TreeNode> linkedList = new LinkedList<>();
         linkedList.add(treeNode);
-        while (index < array.length && linkedList.size() != 0) {
+        while (index < array.length) {
 
             TreeNode node = linkedList.poll();
-            if (node == null) {
-                continue;
+            if (array[index] != null) {
+                node.val = array[index];
             }
-            node.val = array[index];
-            node.left = new TreeNode();
-            linkedList.add(node.left);
-            node.right = new TreeNode();
-            linkedList.add(node.right);
+            int leftIndex = (index + 1) * 2 - 1;
+            if (leftIndex < array.length) {
+                if (node != null) {
+                    node.left = array[leftIndex] == null ? null : new TreeNode(array[leftIndex]);
+                    linkedList.add(node.left);
+                } else {
+                    linkedList.add(null);
+                }
+            }
+            int rightIndex = leftIndex + 1;
+            if (rightIndex < array.length) {
+                if (node != null) {
+                    node.right = array[rightIndex] == null ? null : new TreeNode(array[rightIndex]);
+                    linkedList.add(node.right);
+                } else {
+                    linkedList.add(null);
+                }
+            }
             index++;
         }
-
-        cleanEmptyNode(treeNode);
         return treeNode;
     }
 
