@@ -1,5 +1,7 @@
 package live.xiaoxu.leetcode;
 
+import live.xiaoxu.leetcode.bean.TreeNode;
+
 /**
  * <p><a href="https://leetcode.cn/problems/insufficient-nodes-in-root-to-leaf-paths/">1080. 根到叶路径上的不足节点</a></p>
  *
@@ -41,27 +43,5 @@ public class No001080_2 {
     public TreeNode sufficientSubset(TreeNode root, int limit) {
         boolean remove = remove(root, 0, limit);
         return remove ? null : root;
-    }
-
-    static class TreeNode {
-
-        int val;
-
-        TreeNode left;
-
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
     }
 }
