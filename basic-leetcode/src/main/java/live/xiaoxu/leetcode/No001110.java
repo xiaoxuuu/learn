@@ -16,6 +16,22 @@ import java.util.stream.Collectors;
  */
 public class No001110 {
 
+    public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+
+        Set<Integer> delSet = Arrays.stream(to_delete).boxed().collect(Collectors.toSet());
+        LinkedList<TreeNode> treeList = new LinkedList<>();
+        treeList.add(root);
+        List<TreeNode> retlist = new LinkedList<>();
+        while (treeList.size() != 0) {
+            TreeNode treeNode = treeList.poll();
+            TreeNode tree = cleanTree(treeNode, treeList, delSet);
+            if (tree != null) {
+                retlist.add(tree);
+            }
+        }
+        return retlist;
+    }
+
     /**
      * 返回是否将本节点设置为 null
      *
@@ -39,21 +55,5 @@ public class No001110 {
             return null;
         }
         return treeNode;
-    }
-
-    public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
-
-        Set<Integer> delSet = Arrays.stream(to_delete).boxed().collect(Collectors.toSet());
-        LinkedList<TreeNode> treeList = new LinkedList<>();
-        treeList.add(root);
-        List<TreeNode> retlist = new LinkedList<>();
-        while (treeList.size() != 0) {
-            TreeNode treeNode = treeList.poll();
-            TreeNode tree = cleanTree(treeNode, treeList, delSet);
-            if (tree != null) {
-                retlist.add(tree);
-            }
-        }
-        return retlist;
     }
 }
