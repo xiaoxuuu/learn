@@ -16,12 +16,9 @@ public class No000007 {
 
         long reverse = 0;
         while (x != 0) {
-            reverse = x % 10 + reverse * 10;
+            reverse = reverse * 10 + x % 10;
             x /= 10;
         }
-        if (reverse > Integer.MAX_VALUE || reverse < Integer.MIN_VALUE) {
-            return 0;
-        }
-        return (int) reverse;
+        return (int) reverse == reverse ? (int) reverse : 0;
     }
 }
