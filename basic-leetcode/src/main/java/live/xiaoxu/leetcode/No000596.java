@@ -6,5 +6,7 @@ package live.xiaoxu.leetcode;
  * @author 小徐
  * @since 2023/5/19 10:07
  */
-public class No000596_ {
+public class No000596 {
+
+    // SELECT class FROM Courses GROUP BY class HAVING COUNT(class) > 4;
 }
