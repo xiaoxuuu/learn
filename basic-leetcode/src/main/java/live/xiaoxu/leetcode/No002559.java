@@ -40,6 +40,7 @@ public class No002559 {
         }
 
         // 判定指定范围
+        // TODO 优化时间
         int[] retQualifiedNum = new int[queries.length];
         for (int i = 0; i < queries.length; i++) {
             int[] query = queries[i];
