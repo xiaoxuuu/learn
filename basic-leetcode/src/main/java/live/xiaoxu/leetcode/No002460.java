@@ -14,10 +14,12 @@ public class No002460 {
         int returnIndex = 0;
         for (int i = 0; i < nums.length - 1; i++) {
 
+            // 均为 0，跳过
             if (nums[i] == 0 && nums[i + 1] == 0) {
                 continue;
             }
             if (nums[i] != nums[i + 1]) {
+                // 判断结尾
                 if (i == nums.length - 2) {
                     if (nums[i] != 0) {
                         returnArray[returnIndex] = nums[i];
@@ -31,6 +33,7 @@ public class No002460 {
                 }
                 returnArray[returnIndex] = nums[i];
             } else {
+                // 翻倍
                 nums[i + 1] = 0;
                 returnArray[returnIndex] = nums[i] * 2;
             }
