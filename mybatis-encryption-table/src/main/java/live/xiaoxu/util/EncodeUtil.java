@@ -3,11 +3,11 @@ package live.xiaoxu.util;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class EncryptionUtil {
+public class EncodeUtil {
 
     private static final String CONFUSION_VARIABLE = "0B4FD093BD6A97154001542E682A9289";
 
-    public static String encryptionData(Object data) {
+    public static String encodeData(Object data) {
 
         String md5 = MD5Util.getMD5(data.toString() + CONFUSION_VARIABLE);
         StringBuilder stringBuilder = new StringBuilder();

@@ -1,6 +1,6 @@
 package live.xiaoxu.encryption;
 
-import live.xiaoxu.util.EncryptionUtil;
+import live.xiaoxu.util.EncodeUtil;
 import net.sf.jsqlparser.expression.*;
 import net.sf.jsqlparser.expression.operators.arithmetic.*;
 import net.sf.jsqlparser.expression.operators.conditional.AndExpression;
@@ -15,7 +15,6 @@ import net.sf.jsqlparser.statement.alter.AlterSession;
 import net.sf.jsqlparser.statement.alter.AlterSystemStatement;
 import net.sf.jsqlparser.statement.alter.RenameTableStatement;
 import net.sf.jsqlparser.statement.alter.sequence.AlterSequence;
-import net.sf.jsqlparser.statement.analyze.Analyze;
 import net.sf.jsqlparser.statement.comment.Comment;
 import net.sf.jsqlparser.statement.create.index.CreateIndex;
 import net.sf.jsqlparser.statement.create.schema.CreateSchema;
@@ -32,7 +31,6 @@ import net.sf.jsqlparser.statement.insert.Insert;
 import net.sf.jsqlparser.statement.merge.Merge;
 import net.sf.jsqlparser.statement.replace.Replace;
 import net.sf.jsqlparser.statement.select.*;
-import net.sf.jsqlparser.statement.show.ShowIndexStatement;
 import net.sf.jsqlparser.statement.show.ShowTablesStatement;
 import net.sf.jsqlparser.statement.truncate.Truncate;
 import net.sf.jsqlparser.statement.update.Update;
@@ -66,6 +64,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(Function function) {
+
+        if (Objects.isNull(function)) {
+            return;
+        }
         Optional.ofNullable(function.getParameters()).ifPresent(k -> k.accept(this));
     }
 
@@ -119,6 +121,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(Parenthesis parenthesis) {
+
+        if (Objects.isNull(parenthesis)) {
+            return;
+        }
         Optional.ofNullable(parenthesis.getExpression()).ifPresent(k -> k.accept(this));
     }
 
@@ -157,12 +163,20 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(AndExpression andExpression) {
+
+        if (Objects.isNull(andExpression)) {
+            return;
+        }
         Optional.ofNullable(andExpression.getLeftExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(andExpression.getRightExpression()).ifPresent(k -> k.accept(this));
     }
 
     @Override
     public void visit(OrExpression orExpression) {
+
+        if (Objects.isNull(orExpression)) {
+            return;
+        }
         Optional.ofNullable(orExpression.getLeftExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(orExpression.getRightExpression()).ifPresent(k -> k.accept(this));
     }
@@ -170,16 +184,24 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
     @Override
     public void visit(XorExpression orExpression) {
 
+        // POSSIBLE ERRORS
+        if (Objects.isNull(orExpression)) {
+            return;
+        }
+        Optional.ofNullable(orExpression.getLeftExpression()).ifPresent(k -> k.accept(this));
+        Optional.ofNullable(orExpression.getRightExpression()).ifPresent(k -> k.accept(this));
     }
 
     @Override
     public void visit(Between between) {
 
-    }
-
-    @Override
-    public void visit(OverlapsCondition overlapsCondition) {
-
+        // POSSIBLE ERRORS
+        if (Objects.isNull(between)) {
+            return;
+        }
+        Optional.ofNullable(between.getLeftExpression()).ifPresent(k -> k.accept(this));
+        Optional.ofNullable(between.getBetweenExpressionStart()).ifPresent(k -> k.accept(this));
+        Optional.ofNullable(between.getBetweenExpressionEnd()).ifPresent(k -> k.accept(this));
     }
 
     /**
@@ -187,12 +209,20 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(EqualsTo equalsTo) {
+
+        if (Objects.isNull(equalsTo)) {
+            return;
+        }
         Optional.ofNullable(equalsTo.getLeftExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(equalsTo.getRightExpression()).ifPresent(k -> k.accept(this));
     }
 
     @Override
     public void visit(GreaterThan greaterThan) {
+
+        if (Objects.isNull(greaterThan)) {
+            return;
+        }
         Optional.ofNullable(greaterThan.getLeftExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(greaterThan.getRightExpression()).ifPresent(k -> k.accept(this));
     }
@@ -200,6 +230,12 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
     @Override
     public void visit(GreaterThanEquals greaterThanEquals) {
 
+        // POSSIBLE ERRORS
+        if (Objects.isNull(greaterThanEquals)) {
+            return;
+        }
+        Optional.ofNullable(greaterThanEquals.getLeftExpression()).ifPresent(k -> k.accept(this));
+        Optional.ofNullable(greaterThanEquals.getRightExpression()).ifPresent(k -> k.accept(this));
     }
 
     /**
@@ -207,6 +243,11 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(InExpression inExpression) {
+
+        // POSSIBLE ERRORS
+        if (Objects.isNull(inExpression)) {
+            return;
+        }
         Optional.ofNullable(inExpression.getLeftExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(inExpression.getRightExpression()).ifPresent(k -> k.accept(this));
     }
@@ -214,6 +255,11 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
     @Override
     public void visit(FullTextSearch fullTextSearch) {
 
+        // POSSIBLE ERRORS
+        if (Objects.isNull(fullTextSearch)) {
+            return;
+        }
+        Optional.ofNullable(fullTextSearch.getAgainstValue()).ifPresent(k -> k.accept(this));
     }
 
     /**
@@ -221,6 +267,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(IsNullExpression isNullExpression) {
+
+        if (Objects.isNull(isNullExpression)) {
+            return;
+        }
         Optional.ofNullable(isNullExpression.getLeftExpression()).ifPresent(k -> k.accept(this));
     }
 
@@ -234,6 +284,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(LikeExpression likeExpression) {
+
+        if (Objects.isNull(likeExpression)) {
+            return;
+        }
         Optional.ofNullable(likeExpression.getLeftExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(likeExpression.getRightExpression()).ifPresent(k -> k.accept(this));
     }
@@ -241,11 +295,21 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
     @Override
     public void visit(MinorThan minorThan) {
 
+        if (Objects.isNull(minorThan)) {
+            return;
+        }
+        Optional.ofNullable(minorThan.getLeftExpression()).ifPresent(k -> k.accept(this));
+        Optional.ofNullable(minorThan.getRightExpression()).ifPresent(k -> k.accept(this));
     }
 
     @Override
     public void visit(MinorThanEquals minorThanEquals) {
 
+        if (Objects.isNull(minorThanEquals)) {
+            return;
+        }
+        Optional.ofNullable(minorThanEquals.getLeftExpression()).ifPresent(k -> k.accept(this));
+        Optional.ofNullable(minorThanEquals.getRightExpression()).ifPresent(k -> k.accept(this));
     }
 
     /**
@@ -253,6 +317,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(NotEqualsTo notEqualsTo) {
+
+        if (Objects.isNull(notEqualsTo)) {
+            return;
+        }
         Optional.ofNullable(notEqualsTo.getLeftExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(notEqualsTo.getRightExpression()).ifPresent(k -> k.accept(this));
     }
@@ -262,19 +330,21 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(Column column) {
-        Optional.ofNullable(column).ifPresent(k -> {
-            String columnName = k.getColumnName();
-            HashSet<String> skipColumnSet = new HashSet<String>() {{
-                add("true");
-                add("false");
-                add("TRUE");
-                add("FALSE");
-            }};
-            if (skipColumnSet.contains(columnName)) {
-                return;
-            }
-            k.setColumnName(EncryptionUtil.encryptionData(columnName.replace("`", "")));
-        });
+
+        if (Objects.isNull(column)) {
+            return;
+        }
+        String columnName = column.getColumnName();
+        HashSet<String> skipColumnSet = new HashSet<>() {{
+            add("true");
+            add("false");
+            add("TRUE");
+            add("FALSE");
+        }};
+        if (skipColumnSet.contains(columnName)) {
+            return;
+        }
+        column.setColumnName(EncodeUtil.encodeData(columnName.replace("`", "")));
     }
 
     /**
@@ -282,17 +352,26 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(Table table) {
-        Optional.ofNullable(table).ifPresent(k -> k.setName(EncryptionUtil.encryptionData(table.getName())));
+
+        Optional.ofNullable(table).ifPresent(k -> k.setName(EncodeUtil.encodeData(table.getName())));
     }
 
     @Override
     public void visit(SubSelect subSelect) {
+
+        if (Objects.isNull(subSelect)) {
+            return;
+        }
         Optional.ofNullable(subSelect.getSelectBody()).ifPresent(k -> k.accept(this));
     }
 
     @Override
     public void visit(ExpressionList expressionList) {
-        List<Expression> expressions = Optional.ofNullable(expressionList.getExpressions()).orElse(new ArrayList<>(0));
+
+        if (Objects.isNull(expressionList)) {
+            return;
+        }
+        List<Expression> expressions = Optional.ofNullable(expressionList.getExpressions()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(expressions)) {
             expressions.forEach(k -> k.accept(this));
         }
@@ -338,7 +417,11 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(CaseExpression caseExpression) {
-        List<WhenClause> whenClauses = Optional.ofNullable(caseExpression.getWhenClauses()).orElse(new ArrayList<>(0));
+
+        if (Objects.isNull(caseExpression)) {
+            return;
+        }
+        List<WhenClause> whenClauses = Optional.ofNullable(caseExpression.getWhenClauses()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(whenClauses)) {
             whenClauses.forEach(k -> k.accept(this));
         }
@@ -349,6 +432,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(WhenClause whenClause) {
+
+        if (Objects.isNull(whenClause)) {
+            return;
+        }
         Optional.ofNullable(whenClause.getWhenExpression()).ifPresent(k -> k.accept(this));
         Optional.ofNullable(whenClause.getThenExpression()).ifPresent(k -> k.accept(this));
     }
@@ -395,11 +482,6 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
 
     @Override
     public void visit(TryCastExpression cast) {
-
-    }
-
-    @Override
-    public void visit(SafeCastExpression safeCastExpression) {
 
     }
 
@@ -466,6 +548,14 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
     @Override
     public void visit(MySQLGroupConcat groupConcat) {
 
+        if (Objects.isNull(groupConcat)) {
+            return;
+        }
+        Optional.ofNullable(groupConcat.getExpressionList()).ifPresent(k -> k.accept(this));
+        List<OrderByElement> orderByElementList = Optional.ofNullable(groupConcat.getOrderByElements()).orElse(new ArrayList<>());
+        if (CollectionUtils.isNotEmpty(orderByElementList)) {
+            orderByElementList.forEach(orderByElement -> orderByElement.accept(this));
+        }
     }
 
     @Override
@@ -579,11 +669,6 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
     }
 
     @Override
-    public void visit(Analyze analyze) {
-
-    }
-
-    @Override
     public void visit(SavepointStatement savepointStatement) {
 
     }
@@ -611,7 +696,7 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
         }
 
         // WITH_ITEMS
-        List<WithItem> withItemsList = Optional.ofNullable(delete.getWithItemsList()).orElse(new ArrayList<>(0));
+        List<WithItem> withItemsList = Optional.ofNullable(delete.getWithItemsList()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(withItemsList)) {
             withItemsList.forEach(order -> order.accept(this));
         }
@@ -623,17 +708,11 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
         Optional.ofNullable(delete.getWhere()).ifPresent(k -> k.accept(this));
 
         // JOIN
-        List<Join> joins = Optional.ofNullable(delete.getJoins()).orElse(new ArrayList<>(0));
-        if (CollectionUtils.isNotEmpty(joins)) {
-            joins.forEach(join -> {
-                Optional.ofNullable(join.getRightItem()).ifPresent(k -> k.accept(this));
-                Collection<Expression> onExpressions = Optional.ofNullable(join.getOnExpressions()).orElse(new ArrayList<>(0));
-                onExpressions.forEach(on -> on.accept(this));
-            });
-        }
+        List<Join> joins = Optional.ofNullable(delete.getJoins()).orElse(new ArrayList<>());
+        acceptJoins(joins);
 
         // ORDER BY
-        List<OrderByElement> orderByElements = Optional.ofNullable(delete.getOrderByElements()).orElse(new ArrayList<>(0));
+        List<OrderByElement> orderByElements = Optional.ofNullable(delete.getOrderByElements()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(orderByElements)) {
             orderByElements.forEach(order -> order.accept(this));
         }
@@ -653,40 +732,28 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
         Optional.ofNullable(update.getWhere()).ifPresent(k -> k.accept(this));
 
         // SET
-        List<UpdateSet> updateSets = Optional.ofNullable(update.getUpdateSets()).orElse(new ArrayList<>(0));
+        List<UpdateSet> updateSets = Optional.ofNullable(update.getUpdateSets()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(updateSets)) {
             updateSets.forEach(updateSet -> {
-                List<Column> columns = Optional.ofNullable(updateSet.getColumns()).orElse(new ArrayList<>(0));
-                if (CollectionUtils.isNotEmpty(columns)) {
-                    columns.forEach(column -> {
-                        Optional.ofNullable(column).ifPresent(k -> k.accept(this));
-                    });
-                }
+                Optional.ofNullable(updateSet).ifPresent(k -> {
+                    List<Column> columns = Optional.ofNullable(k.getColumns()).orElse(new ArrayList<>());
+                    if (CollectionUtils.isNotEmpty(columns)) {
+                        columns.forEach(column -> column.accept(this));
+                    }
+                });
             });
         }
 
         // JOIN
-        List<Join> joins = Optional.ofNullable(update.getJoins()).orElse(new ArrayList<>(0));
-        if (CollectionUtils.isNotEmpty(joins)) {
-            joins.forEach(join -> {
-                Optional.ofNullable(join.getRightItem()).ifPresent(k -> k.accept(this));
-                Collection<Expression> onExpressions = Optional.ofNullable(join.getOnExpressions()).orElse(new ArrayList<>(0));
-                onExpressions.forEach(on -> on.accept(this));
-            });
-        }
+        List<Join> joins = Optional.ofNullable(update.getJoins()).orElse(new ArrayList<>());
+        acceptJoins(joins);
 
         // START JOIN
-        List<Join> startJoins = Optional.ofNullable(update.getStartJoins()).orElse(new ArrayList<>(0));
-        if (CollectionUtils.isNotEmpty(startJoins)) {
-            startJoins.forEach(join -> {
-                Optional.ofNullable(join.getRightItem()).ifPresent(k -> k.accept(this));
-                Collection<Expression> onExpressions = Optional.ofNullable(join.getOnExpressions()).orElse(new ArrayList<>(0));
-                onExpressions.forEach(on -> on.accept(this));
-            });
-        }
+        List<Join> startJoins = Optional.ofNullable(update.getStartJoins()).orElse(new ArrayList<>());
+        acceptJoins(startJoins);
 
         // ORDER BY
-        List<OrderByElement> orderByElements = Optional.ofNullable(update.getOrderByElements()).orElse(new ArrayList<>(0));
+        List<OrderByElement> orderByElements = Optional.ofNullable(update.getOrderByElements()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(orderByElements)) {
             orderByElements.forEach(order -> order.accept(this));
         }
@@ -703,7 +770,7 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
         Optional.ofNullable(insert.getTable()).ifPresent(k -> k.accept(this));
 
         // COLUMN
-        List<Column> columns = Optional.ofNullable(insert.getColumns()).orElse(new ArrayList<>(0));
+        List<Column> columns = Optional.ofNullable(insert.getColumns()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(columns)) {
             columns.forEach(column -> column.accept(this));
         }
@@ -712,19 +779,19 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
         Optional.ofNullable(insert.getItemsList()).ifPresent(k -> k.accept(this));
 
         // DUPLICATE_UPDATE_COLUMNS
-        List<Column> duplicateUpdateColumns = Optional.ofNullable(insert.getDuplicateUpdateColumns()).orElse(new ArrayList<>(0));
+        List<Column> duplicateUpdateColumns = Optional.ofNullable(insert.getDuplicateUpdateColumns()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(duplicateUpdateColumns)) {
             duplicateUpdateColumns.forEach(column -> column.accept(this));
         }
 
         // DUPLICATE_UPDATE_EXPRESSION
-        List<Expression> duplicateUpdateExpressionList = Optional.ofNullable(insert.getDuplicateUpdateExpressionList()).orElse(new ArrayList<>(0));
+        List<Expression> duplicateUpdateExpressionList = Optional.ofNullable(insert.getDuplicateUpdateExpressionList()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(duplicateUpdateExpressionList)) {
             duplicateUpdateExpressionList.forEach(column -> column.accept(this));
         }
 
         // WITH_ITEMS
-        List<WithItem> withItemsList = Optional.ofNullable(insert.getWithItemsList()).orElse(new ArrayList<>(0));
+        List<WithItem> withItemsList = Optional.ofNullable(insert.getWithItemsList()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(withItemsList)) {
             withItemsList.forEach(order -> order.accept(this));
         }
@@ -801,11 +868,6 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
     }
 
     @Override
-    public void visit(ShowIndexStatement showIndexStatement) {
-
-    }
-
-    @Override
     public void visit(ShowTablesStatement showTables) {
 
     }
@@ -820,6 +882,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(Select select) {
+
+        if (Objects.isNull(select)) {
+            return;
+        }
         Optional.ofNullable(select.getSelectBody()).ifPresent(k -> k.accept(this));
     }
 
@@ -868,13 +934,7 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
 
         // JOIN
         List<Join> joins = plainSelect.getJoins();
-        if (CollectionUtils.isNotEmpty(joins)) {
-            joins.forEach(join -> {
-                Optional.ofNullable(join.getRightItem()).ifPresent(k -> k.accept(this));
-                Collection<Expression> onExpressions = Optional.ofNullable(join.getOnExpressions()).orElse(new ArrayList<>(0));
-                onExpressions.forEach(on -> on.accept(this));
-            });
-        }
+        acceptJoins(joins);
 
         // WHERE
         Optional.ofNullable(plainSelect.getWhere()).ifPresent(k -> k.accept(this));
@@ -883,7 +943,7 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
         Optional.ofNullable(plainSelect.getGroupBy()).ifPresent(k -> k.accept(this));
 
         // ORDER BY
-        List<OrderByElement> orderByElements = Optional.ofNullable(plainSelect.getOrderByElements()).orElse(new ArrayList<>(0));
+        List<OrderByElement> orderByElements = Optional.ofNullable(plainSelect.getOrderByElements()).orElse(new ArrayList<>());
         if (CollectionUtils.isNotEmpty(orderByElements)) {
             orderByElements.forEach(order -> order.accept(this));
         }
@@ -895,9 +955,26 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
         Optional.ofNullable(plainSelect.getForUpdateTable()).ifPresent(k -> k.accept(this));
     }
 
+    private void acceptJoins(List<Join> joins) {
+        if (CollectionUtils.isNotEmpty(joins)) {
+            joins.forEach(join -> {
+                Optional.ofNullable(join.getRightItem()).ifPresent(k -> k.accept(this));
+                Collection<Expression> onExpressions = Optional.ofNullable(join.getOnExpressions()).orElse(new ArrayList<>());
+                onExpressions.forEach(on -> on.accept(this));
+            });
+        }
+    }
+
     @Override
     public void visit(SetOperationList setOpList) {
 
+        if (Objects.isNull(setOpList)) {
+            return;
+        }
+        List<SelectBody> selects = setOpList.getSelects();
+        if (CollectionUtils.isNotEmpty(selects)) {
+            selects.forEach(select -> select.accept(this));
+        }
     }
 
     @Override
@@ -980,17 +1057,16 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
 
     }
 
-    @Override
-    public void visit(UnsupportedStatement unsupportedStatement) {
-
-    }
-
     /**
      * GROUP BY
      */
     @Override
     public void visit(GroupByElement groupBy) {
 
+        if (Objects.isNull(groupBy)) {
+            return;
+        }
+        Optional.ofNullable(groupBy.getGroupByExpressionList()).ifPresent(k -> k.accept(this));
     }
 
     /**
@@ -998,6 +1074,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(OrderByElement orderBy) {
+
+        if (Objects.isNull(orderBy)) {
+            return;
+        }
         Optional.ofNullable(orderBy.getExpression()).ifPresent(k -> k.accept(this));
     }
 
@@ -1016,6 +1096,10 @@ public class EncryptionVisitor implements StatementVisitor, SelectVisitor, Selec
      */
     @Override
     public void visit(SelectExpressionItem selectExpressionItem) {
+
+        if (Objects.isNull(selectExpressionItem)) {
+            return;
+        }
         selectExpressionItem.setAlias(buildAlias(selectExpressionItem));
         Optional.ofNullable(selectExpressionItem.getExpression()).ifPresent(k -> k.accept(this));
     }
