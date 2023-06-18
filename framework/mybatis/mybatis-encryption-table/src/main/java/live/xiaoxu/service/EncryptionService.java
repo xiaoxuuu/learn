@@ -3,7 +3,7 @@ package live.xiaoxu.service;
 import jakarta.annotation.Resource;
 import live.xiaoxu.dao.EncryptionMapper;
 import live.xiaoxu.entity.FieldInfoDTO;
-import live.xiaoxu.util.EncryptionUtil;
+import live.xiaoxu.util.EncodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -35,7 +35,7 @@ public class EncryptionService {
 
         for (String tableName : tableList) {
 
-            String encryptionTableName = EncryptionUtil.encryptionData(tableName);
+            String encryptionTableName = EncodeUtil.encodeData(tableName);
             log.info("当前处理表：{}({})", tableName, encryptionTableName);
 
             // 查询字段

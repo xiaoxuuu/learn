@@ -3,12 +3,12 @@ package live.xiaoxu.leetcode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class No001439WaitTest {
+class No001439Test {
 
     @Test
     void kthSmallest() {
 
-        No001439wait n1439 = new No001439wait();
+        No001439_hard n1439 = new No001439_hard();
 
         int[][] intArray12 = {
                 {1, 10, 10},

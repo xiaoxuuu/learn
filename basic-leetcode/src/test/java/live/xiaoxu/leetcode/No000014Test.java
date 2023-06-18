@@ -9,6 +9,7 @@ class No000014Test {
     void longestCommonPrefix() {
 
         No000014 n14 = new No000014();
+
         Assertions.assertEquals("fl", n14.longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
         Assertions.assertEquals("", n14.longestCommonPrefix(new String[]{"dog", "racecar", "car"}));
         Assertions.assertEquals("", n14.longestCommonPrefix(new String[]{""}));

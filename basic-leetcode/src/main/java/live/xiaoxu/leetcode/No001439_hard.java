@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author 小徐
  * @since 2023/5/28 13:26
  */
-public class No001439wait {
+public class No001439_hard {
 
     public int kthSmallest(int[][] mat, int k) {
 

@@ -9,6 +9,7 @@ class No000020Test {
     void isValid() {
 
         No000020 n20 = new No000020();
+
         // 通过
         Assertions.assertTrue(n20.isValid("()"));
         Assertions.assertTrue(n20.isValid("{}"));

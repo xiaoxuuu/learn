@@ -1,7 +1,7 @@
 package live.xiaoxu.dao;
 
 import live.xiaoxu.entity.FieldInfoDTO;
-import live.xiaoxu.util.EncryptionUtil;
+import live.xiaoxu.util.EncodeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,7 +27,7 @@ public class EncryptionProvider {
 
             s.append(" CHANGE COLUMN ");
             s.append(packageString(column.getField()));
-            s.append(packageString(EncryptionUtil.encryptionData(column.getField())));
+            s.append(packageString(EncodeUtil.encodeData(column.getField())));
             s.append(column.getType());
 
             if ("NO".equals(column.getNull())) {
