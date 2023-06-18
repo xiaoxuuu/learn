@@ -13,8 +13,8 @@
     <modules>
         <module>basic-data-structure</module>
         <module>basic-design-pattern</module>
-        <module>basic-leetcode</module>
         <module>basic-jdk</module>
+        <module>basic-leetcode</module>
         <module>framework</module>
     </modules>
 

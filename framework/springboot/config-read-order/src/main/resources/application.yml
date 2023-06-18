@@ -1,0 +1,18 @@
+server:
+  port: 10000
+spring:
+  profiles:
+    # 多次引入，取第一次
+    active: dev,test,dev
+# 自定义属性
+read:
+  test:
+    a1: application.yml
+    a2: application.yml
+    a3: application.yml
+    a4: application.yml
+    a5: application.yml
+    a6: application.yml
+    a7: application.yml
+    a8: application.yml
+    a9: application.yml

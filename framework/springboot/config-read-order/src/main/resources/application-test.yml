@@ -1,0 +1,12 @@
+server:
+  port: 10000
+# 自定义属性
+read:
+  test:
+    a3: application-test.yml
+    a4: application-test.yml
+    a5: application-test.yml
+    a6: application-test.yml
+    a7: application-test.yml
+    a8: application-test.yml
+    a9: application-test.yml
