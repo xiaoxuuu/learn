@@ -12,7 +12,7 @@
 
     <modules>
         <module>learn-data-structure</module>
-        <module>basic-design-pattern</module>
+        <module>learn-design-pattern</module>
         <module>learn-jdk</module>
         <module>learn-leetcode</module>
         <module>learn-framework</module>
