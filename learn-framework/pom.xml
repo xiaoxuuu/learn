@@ -5,11 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>live.xiaoxu</groupId>
-        <artifactId>framework</artifactId>
+        <artifactId>learn</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>springboot</artifactId>
+    <artifactId>learn-framework</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>springboot</module>
+        <module>mybatis</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
