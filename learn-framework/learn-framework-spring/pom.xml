@@ -9,7 +9,11 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>mybatis</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>learn-framework-spring-scheduled</module>
+    </modules>
+    <artifactId>learn-framework-spring</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

@@ -9,7 +9,8 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>springboot</artifactId>
+    <packaging>pom</packaging>
+    <artifactId>learn-framework-mybatis</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
