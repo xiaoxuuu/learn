@@ -11,6 +11,7 @@
 
     <artifactId>learn-framework</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>learn-framework-springboot</module>
         <module>learn-framework-mybatis</module>

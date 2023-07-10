@@ -7,8 +7,9 @@
     <groupId>live.xiaoxu</groupId>
     <artifactId>learn</artifactId>
     <version>1.0</version>
-    <packaging>pom</packaging>
     <name>learn</name>
+
+    <packaging>pom</packaging>
 
     <modules>
         <module>learn-data-structure</module>
