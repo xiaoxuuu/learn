@@ -1,6 +1,6 @@
 package live.xiaoxu.leetcode.util;
 
-import live.xiaoxu.leetcode.bean.Node;
+import live.xiaoxu.leetcode.bean.ListNode;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,43 +13,43 @@ import java.util.List;
  */
 public class NodeUtil {
 
-    public static Node numberToNode(int[] num) {
+    public static ListNode numberToNode(int[] num) {
 
-        Node listNode = new Node();
-        Node nextNode = listNode;
+        ListNode listNode = new ListNode();
+        ListNode nextListNode = listNode;
         for (int i = 0; i < num.length; i++) {
-            nextNode.val = num[i];
+            nextListNode.val = num[i];
             if (i == num.length - 1) {
                 continue;
             }
-            nextNode.next = new Node();
-            nextNode = nextNode.next;
+            nextListNode.next = new ListNode();
+            nextListNode = nextListNode.next;
         }
         return listNode;
     }
 
-    public static String nodeToNumber(Node node) {
+    public static String nodeToNumber(ListNode listNode) {
 
-        int val = node.val;
-        if (node.next != null) {
-            return val + nodeToNumber(node.next);
+        int val = listNode.val;
+        if (listNode.next != null) {
+            return val + nodeToNumber(listNode.next);
         }
         return String.valueOf(val);
     }
 
-    public static List<Integer> nodeToList(Node node) {
+    public static List<Integer> nodeToList(ListNode listNode) {
 
         LinkedList<Integer> list = new LinkedList<>();
-        while (node != null) {
-            list.add(node.val);
-            node = node.next;
+        while (listNode != null) {
+            list.add(listNode.val);
+            listNode = listNode.next;
         }
         return list;
     }
 
-    public static int[] nodeToArray(Node node) {
+    public static int[] nodeToArray(ListNode listNode) {
 
-        List<Integer> list = nodeToList(node);
+        List<Integer> list = nodeToList(listNode);
         int[] ints = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
             ints[i] = list.get(i);

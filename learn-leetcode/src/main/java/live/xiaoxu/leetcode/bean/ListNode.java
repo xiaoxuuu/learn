@@ -6,19 +6,19 @@ package live.xiaoxu.leetcode.bean;
  * @author 小徐
  * @since 2023/8/1 16:58
  */
-public class Node {
+public class ListNode {
 
     public int val;
-    public Node next;
+    public ListNode next;
 
-    public Node() {
+    public ListNode() {
     }
 
-    public Node(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
-    public Node(int val, Node next) {
+    public ListNode(int val, ListNode next) {
         this.val = val;
         this.next = next;
     }
