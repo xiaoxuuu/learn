@@ -25,7 +25,7 @@ public class No001110 {
         treeList = new LinkedList<>();
         treeList.add(root);
         List<TreeNode> retlist = new LinkedList<>();
-        while (treeList.size() != 0) {
+        while (!treeList.isEmpty()) {
             TreeNode treeNode = treeList.poll();
             TreeNode tree = cleanTree(treeNode);
             if (tree != null) {
