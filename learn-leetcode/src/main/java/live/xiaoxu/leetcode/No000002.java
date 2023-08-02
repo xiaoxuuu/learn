@@ -1,5 +1,7 @@
 package live.xiaoxu.leetcode;
 
+import live.xiaoxu.leetcode.bean.ListNode;
+
 /**
  * <p><a href="https://leetcode-cn.com/problems/add-two-numbers/">2. 两数相加</a></p>
  *
@@ -40,23 +42,5 @@ public class No000002 {
             newNode.next = addTwoNumbers(l1.next, l2.next);
         }
         return newNode;
-    }
-
-    public static class ListNode {
-
-        public int val;
-        public ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }
