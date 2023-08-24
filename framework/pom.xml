@@ -13,10 +13,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>learn-framework-springboot</module>
-        <module>learn-framework-mybatis</module>
-        <module>learn-framework-spring</module>
-        <module>learn-framework-sharding-jdbc</module>
+        <module>springboot</module>
+        <module>mybatis</module>
+        <module>spring</module>
+        <module>sharding-jdbc</module>
     </modules>
 
     <properties>

@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>live.xiaoxu</groupId>
-        <artifactId>learn-framework-springboot</artifactId>
+        <artifactId>springboot</artifactId>
         <version>1.0</version>
     </parent>
 
     <packaging>jar</packaging>
-    <artifactId>learn-framework-springboot-config-read-order</artifactId>
+    <artifactId>config-read-order</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

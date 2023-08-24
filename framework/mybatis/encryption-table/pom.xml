@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>live.xiaoxu</groupId>
-        <artifactId>learn-framework-mybatis</artifactId>
+        <artifactId>mybatis</artifactId>
         <version>1.0</version>
     </parent>
 
     <packaging>jar</packaging>
-    <artifactId>learn-framework-mybatis-encryption-table</artifactId>
+    <artifactId>encryption-table</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

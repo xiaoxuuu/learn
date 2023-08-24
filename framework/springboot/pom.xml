@@ -10,7 +10,7 @@
     </parent>
 
     <packaging>pom</packaging>
-    <artifactId>learn-framework-springboot</artifactId>
+    <artifactId>springboot</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

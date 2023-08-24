@@ -10,7 +10,7 @@
     </parent>
 
     <packaging>pom</packaging>
-    <artifactId>learn-framework-mybatis</artifactId>
+    <artifactId>mybatis</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

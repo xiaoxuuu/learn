@@ -11,9 +11,9 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>learn-framework-spring-scheduled</module>
+        <module>scheduled</module>
     </modules>
-    <artifactId>learn-framework-spring</artifactId>
+    <artifactId>spring</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
