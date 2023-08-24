@@ -3,27 +3,29 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>live.xiaoxu</groupId>
+        <artifactId>learn</artifactId>
+        <version>1.0</version>
+    </parent>
 
-    <groupId>live.xiaoxu</groupId>
-    <artifactId>learn</artifactId>
-    <version>1.0</version>
-    <name>learn</name>
-
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>data-structure</module>
-        <module>design-pattern</module>
-        <module>jdk</module>
-        <module>leetcode</module>
-        <module>framework</module>
-    </modules>
+    <packaging>jar</packaging>
+    <artifactId>data-structure</artifactId>
 
     <properties>
-        <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+        </dependency>
+    </dependencies>
 
 </project>
