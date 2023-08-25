@@ -1,37 +1,49 @@
 spring:
   shardingsphere:
     datasource:
-      # 三个数据库连接
       names: master,slave0,slave1
-      # 主库
       master:
+        # 数据源类型
         type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:50000/test_db?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT+8
+        # 数据库连接地址
+        url: jdbc:mysql://127.0.0.1:50000/testdb?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&allowPublicKeyRetrieval=true
         username: root
         password: root_50000
-      # 从库
+        driver-class-name: com.mysql.jdbc.Driver
       slave0:
         type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:50001/test_db?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT+8
+        url: jdbc:mysql://127.0.0.1:50001/testdb?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&allowPublicKeyRetrieval=true
         username: root
         password: root_50001
-      # 从库
+        driver-class-name: com.mysql.jdbc.Driver
       slave1:
         type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://192.168.200.103:50004/test_db?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT+8
+        url: jdbc:mysql://192.168.200.103:50004/testdb?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&allowPublicKeyRetrieval=true
         username: root
-        password: root_50004
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+    rules:
+      readwrite-splitting:
+        data-sources:
+          # 名字自定义
+          master0:
+            static-strategy:
+              write-data-source-name: master
+              read-data-source-names: slave0,slave1
+            # # 读写分离规则自定义命名，read-random 是 下方 load-balancers 配置的信息
+            load-balancer-name: read-random
+            # 类型 静态获取
+
+        load-balancers:
+          read-random:
+            # 轮询负载均衡
+            type: ROUND_ROBIN
+            props:
+              auto-aware-data-source-name: master
+              write-data-source-name: master
+              read-data-source-names: slave0,slave1
     props:
-      # 打印 SQl
-      sql.show: true
-    masterslave:
-      # 路由策略
-      load-balance-algorithm-type: round_robin
-    sharding:
-      master-slave-rules:
-        master:
-          master-data-source-name: master
-          slave-data-source-names: slave0,slave1
+      # 是否打印sql
+      sql-show: true
+      # 打印简单的sql
+      sql-simple: true

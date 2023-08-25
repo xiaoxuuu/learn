@@ -3,9 +3,9 @@ package live.xiaoxu.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
-import live.xiaoxu.service.TestTableService;
+import live.xiaoxu.dao.TestTableMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestTableController {
 
     @Resource
-    private TestTableService testTableService;
+    private TestTableMapper testTableMapper;
 
     @Operation(summary = "/add", description = "新增")
-    @PostMapping("/add")
+    @GetMapping("/add")
     public void add() {
 
-        testTableService.add();
+        testTableMapper.add();
     }
 }
