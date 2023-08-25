@@ -1,0 +1,37 @@
+spring:
+  shardingsphere:
+    datasource:
+      # 三个数据库连接
+      names: master,slave0,slave1
+      # 主库
+      master:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:50000/test_db?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT+8
+        username: root
+        password: root_50000
+      # 从库
+      slave0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:50001/test_db?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT+8
+        username: root
+        password: root_50001
+      # 从库
+      slave1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://192.168.200.103:50004/test_db?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT+8
+        username: root
+        password: root_50004
+    props:
+      # 打印 SQl
+      sql.show: true
+    masterslave:
+      # 路由策略
+      load-balance-algorithm-type: round_robin
+    sharding:
+      master-slave-rules:
+        master:
+          master-data-source-name: master
+          slave-data-source-names: slave0,slave1
