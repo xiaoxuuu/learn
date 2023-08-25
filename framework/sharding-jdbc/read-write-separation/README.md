@@ -13,3 +13,5 @@ PRIMARY KEY (`id`)
 ```
 
 # 官网地址
+
+- [读写分离 :: ShardingSphere](https://shardingsphere.apache.org/document/5.2.1/cn/user-manual/shardingsphere-jdbc/spring-boot-starter/rules/readwrite-splitting/)
