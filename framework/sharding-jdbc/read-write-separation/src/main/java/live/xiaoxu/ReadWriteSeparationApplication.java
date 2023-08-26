@@ -4,10 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @Slf4j
-@SpringBootApplication(scanBasePackages = "live.xiaoxu", exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = "live.xiaoxu")
 @MapperScan("live.xiaoxu")
 public class ReadWriteSeparationApplication {
 
