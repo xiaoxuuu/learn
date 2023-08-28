@@ -12,5 +12,5 @@ logging:
       xiaoxu:
         DEBUG
   # 日志输出配置
-  #    root: TRACE
+  #  root: TRACE
   config: logback-spring.xml

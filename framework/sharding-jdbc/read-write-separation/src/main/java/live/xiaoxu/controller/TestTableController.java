@@ -5,7 +5,10 @@ import live.xiaoxu.dao.TestTableMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -19,5 +22,11 @@ public class TestTableController {
     public void add() {
 
         testTableMapper.add();
+    }
+
+    @GetMapping("/get")
+    public @ResponseBody List<String> get() {
+
+        return testTableMapper.get();
     }
 }
