@@ -17,6 +17,7 @@
         <module>jdk</module>
         <module>leetcode</module>
         <module>framework</module>
+        <module>others</module>
     </modules>
 
     <properties>
