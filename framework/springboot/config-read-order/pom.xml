@@ -38,13 +38,5 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>3.0.4</version>
         </dependency>
-
-        <!-- SpringBoot 配置读取器 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-            <version>3.0.4</version>
-        </dependency>
     </dependencies>
 </project>
