@@ -1,4 +1,4 @@
-package live.xiaoxu.temp;
+package live.xiaoxu;
 
 public class ChainReverse {
 

@@ -1,4 +1,4 @@
-package live.xiaoxu.treeset;
+package live.xiaoxu;
 
 import java.util.Comparator;
 import java.util.Set;
