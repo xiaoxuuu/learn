@@ -1,6 +1,6 @@
 package live.xiaoxu;
 
-public class Main {
+public class OSMessagePrint {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         System.out.println(System.getProperty("user.home"));
