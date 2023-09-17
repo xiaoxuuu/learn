@@ -14,6 +14,7 @@
         <module>scheduled</module>
         <module>spring4-aop</module>
         <module>spring5-aop</module>
+        <module>spring6-aop</module>
     </modules>
     <artifactId>spring</artifactId>
 
