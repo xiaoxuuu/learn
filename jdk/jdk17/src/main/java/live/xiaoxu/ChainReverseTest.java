@@ -1,6 +1,6 @@
 package live.xiaoxu;
 
-public class ChainReverse {
+public class ChainReverseTest {
 
     public static void main(String[] args) {
 

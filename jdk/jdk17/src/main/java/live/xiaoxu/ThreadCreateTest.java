@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class ThreadCreate {
+public class ThreadCreateTest {
 
     public static class ThreadTest extends Thread {
         @SneakyThrows
